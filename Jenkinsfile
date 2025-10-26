@@ -31,6 +31,7 @@ pipeline {
               sudo rm -rf /usr/share/nginx/html/*
               sudo cp -r /var/lib/jenkins/workspace/pipelines/jenkins-maven method/target/* /usr/share/nginx/html
               sudo systemctl restart nginx
+              '''
             }
         }
     }
