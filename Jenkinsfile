@@ -25,7 +25,7 @@ pipeline {
                archiveArtifacts artifacts: 'target/*.jar'
            }
         }  
-        stage('deploy to nginx'){
+        stage('deploy to tomcat'){
          steps {
              sh '''
               sudo rm -rf /usr/share/nginx/html/*
