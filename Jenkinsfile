@@ -27,11 +27,7 @@ pipeline {
         }  
         stage('deploy to tomcat'){
          steps {
-             sh '''
-              sudo rm -rf /usr/share/nginx/html/*
-              sudo cp -r /var/lib/jenkins/workspace/pipelines/jenkins-maven method/target/* /usr/share/nginx/html
-              sudo systemctl restart nginx
-              '''
+             sh 'sudo cp -r /var/lib/jenkins/workspace/pipelines/jenkins-maven method/target/* /home/mallisetti/tomcat/webapps/'
             }
         }
     }
