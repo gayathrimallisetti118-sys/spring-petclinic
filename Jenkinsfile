@@ -25,10 +25,5 @@ pipeline {
                archiveArtifacts artifacts: 'target/*.jar'
            }
         }  
-        stage('deploy to tomcat'){
-         steps {
-             sh 'sudo cp -r "/var/lib/jenkins/workspace/pipelines/jenkins-maven method/target/"* /home/mallisetti/tomcat/webapps/'
-            }
-        }
     }
 }
