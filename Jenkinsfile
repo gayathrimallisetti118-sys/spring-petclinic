@@ -20,7 +20,7 @@ pipeline {
     }
       stage('git clone') {
           when{
-            expression { BRANCH_NAME ==~ /(main)/ }
+            expression { BRANCH_NAME == 'main' }
         }
           steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-github-ssh-key', url: 'git@github.com:gayathrimallisetti118-sys/spring-petclinic.git']])
@@ -43,15 +43,15 @@ pipeline {
         } 
         stage("deploy to DEV"){
          when {
-                expression { DEPLOY_ENV ==~ /(dev)/ }
+                expression { DEPLOY_ENV == 'dev' }
         }
         steps{
         echo "deployment done in DEV server"
         }
     }
-    stage("deploy to PROD"){
+       stage("deploy to PROD"){
         when {
-                expression { DEPLOY_ENV ==~ /(prod)/ }
+            expression { DEPLOY_ENV ==~ 'prod' }
         }
         steps{
         echo "deployment done in PROD server"
