@@ -18,12 +18,11 @@ pipeline {
             }
         }
     }
-    stages {
-      when{
+      stage('git clone') {
+          when{
             expression { BRANCH_NAME ==~ /(main)/ }
         }
-      stage('git clone') {
-            steps {
+          steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-github-ssh-key', url: 'git@github.com:gayathrimallisetti118-sys/spring-petclinic.git']])
             }
          }
